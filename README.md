@@ -43,7 +43,15 @@ This is an experimental interface to implement a video player using the Bootstra
         <th>Description</th>
     </tr>
     <tr>
-        <td>Class</td>
-        <td>Description</td>
+        <td>.videoplayer</td>
+        <td>Sets the videoplayer to position relative and display block</td>
+    </tr>
+    <tr>
+        <td>.video</td>
+        <td>Sets the max width and height of the video to 100%</td>
+    </tr>
+    <tr>
+        <td>.controls</td>
+        <td>Defines the control section for the player. Controls are positioned with position absolute and display flex</td>
     </tr>
 </table>
