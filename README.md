@@ -4,6 +4,7 @@ This is an experimental interface to implement a video player using the Bootstra
 
 <a href="https://koehlersimon.github.io/bootstrap-videoplayer/">https://koehlersimon.github.io/bootstrap-videoplayer/</a>
 
+### HTML Markup for Video Player
 ```
 <!-- Video Player with default light controls -->
 <div class="videoplayer">
@@ -33,3 +34,16 @@ This is an experimental interface to implement a video player using the Bootstra
   </div>
 </div>
 ```
+
+### CSS Classes
+
+<table>
+    <tr>
+        <th>Class</th>
+        <th>Description</th>
+    </tr>
+    <tr>
+        <td>Class</td>
+        <td>Description</td>
+    </tr>
+</table>
