@@ -51,6 +51,10 @@ $default-bg-progress-bar-dark: #999;
             transition: opacity .5s ease-in-out;
             transition-delay: .5s;
         }
+        button > *,
+        .btn > * {
+            pointer-events: none !important;
+        }
     }
     .dropup-volume{
         position: absolute !important;

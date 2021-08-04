@@ -41,6 +41,10 @@
   transition: opacity 0.5s ease-in-out;
   transition-delay: 0.5s;
 }
+.videoplayer .controls button > *,
+.videoplayer .controls .btn > * {
+  pointer-events: none !important;
+}
 .videoplayer .dropup-volume {
   position: absolute !important;
   bottom: calc(100% + 5px) !important;
