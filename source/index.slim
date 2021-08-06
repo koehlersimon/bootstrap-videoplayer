@@ -7,6 +7,7 @@ html lang="en"
         link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous"
         link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.5.0/font/bootstrap-icons.css"
         link rel="stylesheet" href="dist/css/videoplayer.min.css"
+        link rel="stylesheet" href="source/css/prism.css"
     body
 
         .text-center.py-4.pt-lg-4.bg-light.mb-5.mb-lg-0
@@ -16,7 +17,8 @@ html lang="en"
         section.pb-2.py-lg-5
 
             .container
-                .row.g-4
+                .row.g-4.mb-5
+
                     .col-lg-6.d-flex.align-items-center
                         div
                             p This is an experimental interface to implement a video player using the Bootstrap 5 framework. The HTML structure was deliberately created so that you can customize the player to your own design using Bootstrap's built-in CSS classes.
@@ -50,6 +52,55 @@ html lang="en"
                                         a.dropdown-item href="#" <i class="bi bi-info-circle-fill"></i> About
 
                         <!-- Video Player END -->
+
+                h3 HTML markup
+                pre
+                    code.language-markup
+                        | &lt;!--
+                            Make sure to include the Bootstrap CSS in your website header:
+                            &lt;link crossorigin="anonymous" href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" rel="stylesheet">
+                          -->
+
+                          &lt;div class="videoplayer"&gt;
+                             &lt;div class="ratio ratio-16x9 bg-dark"&gt;
+                                &lt;video class="video" src="source/video-demo-timelapse.mp4"&gt;&lt;/video&gt;
+                             &lt;div&gt;
+                             &lt;div class="controls"&gt;
+                                &lt;button class="btn btn-lg btn-video-playpause" type="button">
+                                    &lt;i class="bi bi-play-fill">&lt;/i>
+                                    &lt;i class="bi bi-pause-fill d-none">&lt;/i>
+                                &lt;/button>
+                                &lt;div class="px-1 w-100">
+                                    &lt;div class="progress w-100">
+                                        &lt;div class="progress-bar" min="0" value="0">&lt;/div>
+                                    &lt;/div>
+                                &lt;/div>
+                                &lt;button class="btn btn-lg btn-video-pip" title="Play picture in picture">
+                                    &lt;i class="bi bi-pip">&lt;/i>
+                                &lt;/button>
+                                &lt;button class="btn btn-lg btn-video-fullscreen">
+                                    &lt;i class="bi bi-arrows-fullscreen">&lt;/i>
+                                &lt;/button>
+                                &lt;div class="dropup">
+                                    &lt;button class="btn btn-lg btn-video-volume" data-bs-toggle="dropdown" title="Volume">
+                                        &lt;i class="bi bi-volume-mute-fill">&lt;/i>
+                                    &lt;/button>
+                                    &lt;div class="dropdown-menu dropdown-menu-end dropup-volume">
+                                        &lt;input class="form-range" type="range" value="25">
+                                    &lt;/div>
+                                &lt;/div>
+                                &lt;div class="dropup">
+                                    &lt;button class="btn btn-lg btn-more" data-bs-toggle="dropdown" title="More...">
+                                        &lt;i class="bi bi-three-dots-vertical">&lt;/i>
+                                    &lt;/button>
+                                    &lt;div class="dropdown-menu dropdown-menu-end">
+                                        &lt;a class="dropdown-item" href="#">
+                                            &lt;i class="bi bi-info-circle-fill">&lt;/i> About
+                                        &lt;/a>
+                                    &lt;/div>
+                                &lt;/div>
+                             &lt;/div&gt;
+                          &lt;/div&gt;
 
 
         section.py-2.py-lg-5.bg-dark.text-light
@@ -170,7 +221,7 @@ html lang="en"
                         p Move your mouse over the video to see controls..
 
                         code
-                            pre
+                            pre.language-css
                                 | class="controls auto-hide"
 
                     .col-lg-7
@@ -261,3 +312,4 @@ html lang="en"
 
     script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"
     script src="dist/js/videoplayer.min.js"
+    script src="source/js/prism.js"
