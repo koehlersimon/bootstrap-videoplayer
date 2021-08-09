@@ -34,22 +34,24 @@ html lang="en"
 
                         .videoplayer#demoplayer-1
                             .ratio.ratio-16x9.bg-dark
-                                video.video src="source/video-demo-timelapse.mp4"
+                                video.video src="source/2_5213023229899182084.mp4"
                             .controls
-                                button.btn.btn-lg.btn-video-playpause type="button" <i class="bi bi-play-fill"></i> <i class="bi bi-pause-fill d-none"></i>
+                                button.btn.btn-lg.btn-video-playpause type="button" title="Play Video" <i class="bi bi-play-fill"></i> <i class="bi bi-pause-fill d-none"></i>
                                 div.px-1.w-100
                                     div.progress.w-100
                                         div.progress-bar value="0" min="0"
                                 button.btn.btn-lg.btn-video-pip title="Play picture in picture" <i class="bi bi-pip"></i>
-                                button.btn.btn-lg.btn-video-fullscreen <i class="bi bi-arrows-fullscreen"></i>
+                                button.btn.btn-lg.btn-video-fullscreen title="Full Screen" <i class="bi bi-arrows-fullscreen"></i>
                                 .dropup
                                     button.btn.btn-lg.btn-video-volume title="Volume" data-bs-toggle="dropdown" <i class="bi bi-volume-mute-fill"></i>
                                     .dropdown-menu.dropdown-menu-end.dropup-volume
-                                        input type="range" class="form-range" value="25"
+                                        input type="range" class="form-range input-video-volume" value="25"
                                 .dropup
-                                    button.btn.btn-lg.btn-more title="More..." data-bs-toggle="dropdown" <i class="bi bi-three-dots-vertical"></i>
+                                    button.btn.btn-lg title="More..." data-bs-toggle="dropdown" <i class="bi bi-three-dots-vertical"></i>
                                     .dropdown-menu.dropdown-menu-end
                                         a.dropdown-item href="#" <i class="bi bi-info-circle-fill"></i> About
+                            .overlay
+                                .title MY CRAZY DEMO VIDEO
 
                         <!-- Video Player END -->
 
@@ -66,7 +68,7 @@ html lang="en"
                                 &lt;video class="video" src="source/video-demo-timelapse.mp4"&gt;&lt;/video&gt;
                              &lt;div&gt;
                              &lt;div class="controls"&gt;
-                                &lt;button class="btn btn-lg btn-video-playpause" type="button">
+                                &lt;button class="btn btn-lg btn-video-playpause" type="button" title="Play Video">
                                     &lt;i class="bi bi-play-fill">&lt;/i>
                                     &lt;i class="bi bi-pause-fill d-none">&lt;/i>
                                 &lt;/button>
@@ -86,11 +88,11 @@ html lang="en"
                                         &lt;i class="bi bi-volume-mute-fill">&lt;/i>
                                     &lt;/button>
                                     &lt;div class="dropdown-menu dropdown-menu-end dropup-volume">
-                                        &lt;input class="form-range" type="range" value="25">
+                                        &lt;input class="form-range input-video-volume" type="range" value="25">
                                     &lt;/div>
                                 &lt;/div>
                                 &lt;div class="dropup">
-                                    &lt;button class="btn btn-lg btn-more" data-bs-toggle="dropdown" title="More...">
+                                    &lt;button class="btn btn-lg" data-bs-toggle="dropdown" title="More...">
                                         &lt;i class="bi bi-three-dots-vertical">&lt;/i>
                                     &lt;/button>
                                     &lt;div class="dropdown-menu dropdown-menu-end">
