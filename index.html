@@ -22,9 +22,9 @@
     </div>
     <section class="py-2 py-lg-5 bg-primary text-light">
       <div class="container">
-        <div class="row g-4 mb-5">
+        <div class="row g-4">
           <div class="col-lg-3">
-            <div class="sticky-top">
+            <div class="sticky-top pt-4">
               <p class="small">
                 This is an <strong>experimental</strong> interface to implement a video player using the Bootstrap 5 framework. The HTML structure was deliberately created so that you can customize the player to your own design using Bootstrap's built-in CSS classes.
               </p>
@@ -53,10 +53,13 @@
                   Pure JavaScript
                 </li>
               </ul>
-              <small class="text-info fw-bold">This project is still experimental! Do not use it in a live environment yet!</small>
+              <p class="small text-info fw-bold">
+                This project is still experimental! Do not use it in a live environment when you don't know what you're doing ;-)
+              </p>
+              <a class="btn btn-dark btn-lg fw-bold" href="https://github.com/koehlersimon/bootstrap-videoplayer/"><i class="bi bi-github"></i>&nbsp; CONTRIBUTE</a>
             </div>
           </div>
-          <div class="col-lg-9">
+          <div class="col-lg-9 pt-4">
             <!-- Video Player START -->
             <div class="videoplayer" id="player-1">
               <div class="ratio ratio-21x9 bg-dark">
@@ -162,9 +165,12 @@ var myPlayer = new BootstrapVideoplayer('myCustomPlayer',{
     </section>
     <section class="py-2 py-lg-5 bg-dark text-light">
       <div class="container my-4">
-        <h2 class="text-center mb-5 fw-bold">
+        <h2 class="text-center fw-bold mb-0">
           Color Schemes
         </h2>
+        <p class="text-center lead mb-5">
+          Using the build in Bootstrap Color Schemes
+        </p>
         <div class="row g-4">
           <div class="col-lg-6">
             <!-- Video Player START -->

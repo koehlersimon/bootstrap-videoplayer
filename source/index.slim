@@ -21,10 +21,10 @@ html lang="en"
         section.py-2.py-lg-5.bg-primary.text-light
 
             .container
-                .row.g-4.mb-5
+                .row.g-4
 
                     .col-lg-3
-                        div.sticky-top
+                        div.sticky-top.pt-4
                             p.small This is an <strong>experimental</strong> interface to implement a video player using the Bootstrap 5 framework. The HTML structure was deliberately created so that you can customize the player to your own design using Bootstrap's built-in CSS classes.
                             h4 Files
                             ul.list-unstyled
@@ -38,9 +38,13 @@ html lang="en"
                                 li title="Play Video" data-bs-toggle="tooltip" data-bs-placement="top" Bootstrap Version 5.0.2
                                 li Uses Bootstrap Icons
                                 li Pure JavaScript
-                            small.text-info.fw-bold This project is still experimental! Do not use it in a live environment yet!
+                            p.small.text-info.fw-bold This project is still experimental! Do not use it in a live environment when you don't know what you're doing ;-)
 
-                    .col-lg-9
+                            a.btn.btn-dark.btn-lg.fw-bold href="https://github.com/koehlersimon/bootstrap-videoplayer/"
+                                i.bi.bi-github
+                                | &nbsp; CONTRIBUTE
+
+                    .col-lg-9.pt-4
 
                         <!-- Video Player START -->
 
@@ -144,7 +148,8 @@ html lang="en"
 
             .container.my-4
 
-                h2.text-center.mb-5.fw-bold Color Schemes
+                h2.text-center.fw-bold.mb-0 Color Schemes
+                p.text-center.lead.mb-5 Using the build in Bootstrap Color Schemes
 
                 .row.g-4
                     .col-lg-6
