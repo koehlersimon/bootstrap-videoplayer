@@ -119,11 +119,20 @@ var myPlayer = new BootstrapVideoplayer('myCustomPlayer')</code></pre>
             <pre class="mb-4"><code class="language-javascript">/*
 * You must provide the element ID
 * Settings are optional and will be merged with default settings
+* Make sure you change the CSS as well, when you define custom class names here
 */
 var myPlayer = new BootstrapVideoplayer('myCustomPlayer',{
-  selectors:{
-      video: '.cheeseburger'
-  }
+    selectors:{
+        video: '.video',
+        playPauseButton: '.btn-video-playpause',
+        playIcon: '.bi-play-fill',
+        pauseIcon: '.bi-pause-fill',
+        progress: '.progress',
+        progressbar: '.progress-bar',
+        pipButton: '.btn-video-pip',
+        fullscreenButton: '.btn-video-fullscreen',
+        volumeRange: '.form-range-volume'
+   }
 })</code></pre>
             <h3>
               HTML markup
@@ -174,6 +183,93 @@ var myPlayer = new BootstrapVideoplayer('myCustomPlayer',{
       &lt;/div>
    &lt;/div&gt;
 &lt;/div&gt;</code></pre>
+            <h3>
+              CSS
+            </h3>
+            <pre class="mb-4"><code class="language-css">/*
+  Make sure to include the Bootstrap CSS and the Video Player CSS file in your website header:
+  &lt;link crossorigin="anonymous" href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" rel="stylesheet">
+  &lt;link href="videoplayer.min.css" rel="stylesheet">
+*/
+.videoplayer {
+  position: relative;
+  display: block;
+}
+.videoplayer video {
+  max-width: 100%;
+  max-height: 100%;
+}
+.videoplayer .controls {
+  position: absolute;
+  bottom: 0;
+  display: flex;
+  width: 100%;
+  align-items: center;
+  bottom: 0;
+  background-color: #eee;
+}
+.videoplayer .controls .progress {
+  background-color: #333;
+}
+.videoplayer .controls .progress .progress-bar {
+  transition: none !important;
+  background-color: #666;
+}
+.videoplayer .controls.controls-light .bi {
+  color: #2b2b2b;
+}
+.videoplayer .controls.controls-dark {
+  background-color: #2b2b2b;
+}
+.videoplayer .controls.controls-dark .bi {
+  color: #eee;
+}
+.videoplayer .controls.controls-dark .progress {
+  background-color: #ccc;
+}
+.videoplayer .controls.controls-dark .progress .progress-bar {
+  background-color: #999;
+}
+.videoplayer .controls.auto-hide {
+  opacity: 0;
+  transition: opacity 0.5s ease-in-out;
+  transition-delay: 0.5s;
+}
+.videoplayer .controls button > *,
+.videoplayer .controls .btn > * {
+  pointer-events: none !important;
+}
+.videoplayer .overlay {
+  position: absolute;
+  z-index: 300;
+  top: 0;
+  left: 0;
+}
+.videoplayer .overlay .title {
+  font-size: inherit;
+  color: white;
+  padding: 0.5rem;
+  font-weight: bold;
+}
+.videoplayer .dropup-volume {
+  position: absolute !important;
+  bottom: calc(100% + 5px) !important;
+  padding: 0.75rem 1rem;
+  transform: none !important;
+  min-width: inherit;
+}
+.videoplayer .dropup-volume .form-range {
+  -webkit-appearance: slider-vertical;
+  width: 1rem !important;
+  height: 100% !important;
+}
+.videoplayer:hover .controls.auto-hide {
+  opacity: 1;
+}
+
+.tooltip {
+  z-index: 1400;
+}</code></pre>
           </div>
         </div>
       </div>
@@ -436,10 +532,24 @@ var myPlayer = new BootstrapVideoplayer('myCustomPlayer',{
       </div>
     </section>
   </body>
-  <div class="py-5">
-    <div class="small text-center text-muted">
-      <a class="btn btn-outline-dark btn-sm" href="https://simon-koehler.com" target="_blank">By Simon Köhler</a>
-    </div>
+  <div class="bg-dark py-5 text-center d-flex">
+    <ul class="nav mx-auto">
+      <li class="nav-item align-items-center d-flex">
+        <a class="nav-link" href="https://simon-koehler.com"><img src="https://raw.githubusercontent.com/koehlersimon/bootstrap-videoplayer/master/favicon.ico"></a>
+      </li>
+      <li class="nav-item align-items-center d-flex">
+        <a class="nav-link link-light text-decoration-none" href="https://simon-koehler.com" target="_blank">By Simon Köhler</a>
+      </li>
+      <li class="nav-item align-items-center d-flex">
+        <a class="nav-link link-light text-decoration-none" href="https://simon-koehler.com" target="_blank"><i class="bi bi-instagram"></i></a>
+      </li>
+      <li class="nav-item align-items-center d-flex">
+        <a class="nav-link link-light text-decoration-none" href="https://www.linkedin.com/in/typo3-freelancer/" target="_blank"><i class="bi bi-linkedin"></i></a>
+      </li>
+      <li class="nav-item align-items-center d-flex">
+        <a class="nav-link link-light text-decoration-none" href="https://simon-koehler.com" target="_blank"><i class="bi bi-youtube"></i></a>
+      </li>
+    </ul>
   </div>
   <script crossorigin="anonymous" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"></script>
   <script src="dist/js/videoplayer.min.js"></script>
