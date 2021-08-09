@@ -2,7 +2,7 @@
   <head>
     <meta charset="utf-8">
     <meta content="width=device-width, initial-scale=1" name="viewport">
-    <title>VIDEO PLAYER INTERFACE FOR BOOTSTRAP 5</title>
+    <title>VIDEO PLAYER INTERFACE FOR BOOTSTRAP 5.0.2</title>
     <meta content="Customizable Video Player Interface for Bootstrap 5" name="description">
     <link crossorigin="anonymous" href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" rel="stylesheet">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.5.0/font/bootstrap-icons.css" rel="stylesheet">
@@ -14,20 +14,35 @@
       <h1 class="display-3 mb-0 fw-bold">
         VIDEO PLAYER INTERFACE
       </h1>
-      <h2 class="fw-4">
-        FOR BOOTSTRAP 5
+      <h2 class="fw-4 mb-0">
+        FOR BOOTSTRAP 5.0.2
       </h2>
+      <span class="small text-muted">LAST UPDATE: 9.8.2021</span>
     </div>
-    <section class="pb-2 py-lg-5">
+    <section class="py-2 py-lg-5 bg-primary text-light">
       <div class="container">
         <div class="row g-4 mb-5">
-          <div class="col-lg-6 d-flex align-items-center">
-            <div>
-              <p>
-                This is an experimental interface to implement a video player using the Bootstrap 5 framework. The HTML structure was deliberately created so that you can customize the player to your own design using Bootstrap's built-in CSS classes.
+          <div class="col-lg-3">
+            <div class="sticky-top">
+              <p class="small">
+                This is an <strong>experimental</strong> interface to implement a video player using the Bootstrap 5 framework. The HTML structure was deliberately created so that you can customize the player to your own design using Bootstrap's built-in CSS classes.
               </p>
-              <ul class="mb-4">
+              <h4>
+                Files
+              </h4>
+              <ul class="list-unstyled">
                 <li>
+                  <a class="link-info" href="https://github.com/koehlersimon/bootstrap-videoplayer/tree/master/dist/js">videoplayer.min.js (6kb)</a>
+                </li>
+                <li>
+                  <a class="link-info" href="https://github.com/koehlersimon/bootstrap-videoplayer/tree/master/dist/css">videoplayer.min.css (1kb)</a>
+                </li>
+              </ul>
+              <h4>
+                Features
+              </h4>
+              <ul class="mb-4">
+                <li data-bs-placement="top" data-bs-toggle="tooltip" title="Play Video">
                   Bootstrap Version 5.0.2
                 </li>
                 <li>
@@ -37,58 +52,72 @@
                   Pure JavaScript
                 </li>
               </ul>
-              <div class="alert alert-info">
-                This project is still experimental! Do not use it in a live environment yet!
-              </div>
+              <small class="text-info fw-bold">This project is still experimental! Do not use it in a live environment yet!</small>
             </div>
           </div>
-          <div class="col-lg-6">
+          <div class="col-lg-9">
             <!-- Video Player START -->
-            <div class="videoplayer" id="demoplayer-1">
-              <div class="ratio ratio-16x9 bg-dark">
-                <video class="video" src="source/2_5213023229899182084.mp4"></video>
+            <div class="videoplayer" id="player-1">
+              <div class="ratio ratio-21x9 bg-dark">
+                <video class="video" src="http://commondatastorage.googleapis.com/gtv-videos-bucket/sample/TearsOfSteel.mp4#t=9"></video>
               </div>
-              <div class="controls">
-                <button class="btn btn-lg btn-video-playpause" title="Play Video" type="button"><i class="bi bi-play-fill"></i> <i class="bi bi-pause-fill d-none"></i></button>
+              <div class="controls controls-dark auto-hide">
+                <button class="btn btn-lg btn-video-playpause" data-bs-toggle="tooltip" title="Play Video" type="button"><i class="bi bi-play-fill"></i><i class="bi bi-pause-fill d-none"></i></button>
                 <div class="px-1 w-100">
                   <div class="progress w-100">
-                    <div class="progress-bar" min="0" value="0"></div>
+                    <div class="progress-bar"></div>
                   </div>
                 </div>
                 <button class="btn btn-lg btn-video-pip" title="Play picture in picture"><i class="bi bi-pip"></i></button><button class="btn btn-lg btn-video-fullscreen" title="Full Screen"><i class="bi bi-arrows-fullscreen"></i></button>
                 <div class="dropup">
                   <button class="btn btn-lg btn-video-volume" data-bs-toggle="dropdown" title="Volume"><i class="bi bi-volume-mute-fill"></i></button>
-                  <div class="dropdown-menu dropdown-menu-end dropup-volume">
-                    <input class="form-range input-video-volume" type="range" value="25">
+                  <div class="dropdown-menu dropdown-menu-end dropup-volume dropdown-menu-dark">
+                    <input class="form-range form-range-volume" type="range">
                   </div>
                 </div>
                 <div class="dropup">
                   <button class="btn btn-lg" data-bs-toggle="dropdown" title="More..."><i class="bi bi-three-dots-vertical"></i></button>
-                  <div class="dropdown-menu dropdown-menu-end">
+                  <div class="dropdown-menu dropdown-menu-end dropdown-menu-dark">
                     <a class="dropdown-item" href="#"><i class="bi bi-info-circle-fill"></i> About</a>
                   </div>
                 </div>
               </div>
               <div class="overlay">
                 <div class="title">
-                  MY CRAZY DEMO VIDEO
+                  Tears of Steel
                 </div>
               </div>
             </div>
             <!-- Video Player END -->
-          </div>
-        </div>
-        <h3>
-          HTML markup
-        </h3>
-        <pre><code class="language-markup">&lt;!--
+            <hr>
+            <h2>
+              Initialization with default settings
+            </h2>
+            <pre class="mb-4"><code class="language-javascript">// You must provide the element ID
+var myPlayer = new BootstrapVideoplayer('myCustomPlayer')</code></pre>
+            <h2>
+              Initialization with custom settings
+            </h2>
+            <pre class="mb-4"><code class="language-javascript">/*
+* You must provide the element ID
+* Settings are optional and will be merged with default settings
+*/
+var myPlayer = new BootstrapVideoplayer('myCustomPlayer',{
+  selectors:{
+      video: '.cheeseburger'
+  }
+})</code></pre>
+            <h3>
+              HTML markup
+            </h3>
+            <pre class="mb-4"><code class="language-markup">&lt;!--
   Make sure to include the Bootstrap CSS in your website header:
   &lt;link crossorigin="anonymous" href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" rel="stylesheet">
 -->
 
-&lt;div class="videoplayer"&gt;
+&lt;div class="videoplayer" id="myCustomPlayer"&gt;
    &lt;div class="ratio ratio-16x9 bg-dark"&gt;
-      &lt;video class="video" src="source/video-demo-timelapse.mp4"&gt;&lt;/video&gt;
+      &lt;video class="video" src="http://commondatastorage.googleapis.com/gtv-videos-bucket/sample/ElephantsDream.mp4"&gt;&lt;/video&gt;
    &lt;div&gt;
    &lt;div class="controls"&gt;
       &lt;button class="btn btn-lg btn-video-playpause" type="button" title="Play Video">
@@ -97,7 +126,7 @@
       &lt;/button>
       &lt;div class="px-1 w-100">
           &lt;div class="progress w-100">
-              &lt;div class="progress-bar" min="0" value="0">&lt;/div>
+              &lt;div class="progress-bar">&lt;/div>
           &lt;/div>
       &lt;/div>
       &lt;button class="btn btn-lg btn-video-pip" title="Play picture in picture">
@@ -111,7 +140,7 @@
               &lt;i class="bi bi-volume-mute-fill">&lt;/i>
           &lt;/button>
           &lt;div class="dropdown-menu dropdown-menu-end dropup-volume">
-              &lt;input class="form-range input-video-volume" type="range" value="25">
+              &lt;input type="range" class="form-range form-range-volume">
           &lt;/div>
       &lt;/div>
       &lt;div class="dropup">
@@ -126,6 +155,8 @@
       &lt;/div>
    &lt;/div&gt;
 &lt;/div&gt;</code></pre>
+          </div>
+        </div>
       </div>
     </section>
     <section class="py-2 py-lg-5 bg-dark text-light">
@@ -136,22 +167,22 @@
         <div class="row g-4">
           <div class="col-lg-6">
             <!-- Video Player START -->
-            <div class="videoplayer" id="demoplayer-2">
+            <div class="videoplayer" id="player-2">
               <div class="ratio ratio-16x9 bg-dark">
-                <video class="video" src="source/pexels-cottonbro-7494737-small.mp4"></video>
+                <video class="video" src="http://commondatastorage.googleapis.com/gtv-videos-bucket/sample/ForBiggerBlazes.mp4"></video>
               </div>
               <div class="controls controls-dark">
-                <button class="btn btn-lg btn-video-playpause" type="button"><i class="bi bi-play-fill"></i> <i class="bi bi-pause-fill d-none"></i></button>
+                <button class="btn btn-lg btn-video-playpause" data-bs-toggle="tooltip" title="Play Video" type="button"><i class="bi bi-play-fill"></i><i class="bi bi-pause-fill d-none"></i></button>
                 <div class="px-1 w-100">
                   <div class="progress w-100">
-                    <div class="progress-bar" min="0" value="0"></div>
+                    <div class="progress-bar"></div>
                   </div>
                 </div>
                 <button class="btn btn-lg btn-video-pip" title="Play picture in picture"><i class="bi bi-pip"></i></button><button class="btn btn-lg btn-video-fullscreen"><i class="bi bi-arrows-fullscreen"></i></button>
                 <div class="dropup">
                   <button class="btn btn-lg btn-video-volume" data-bs-toggle="dropdown" title="Volume"><i class="bi bi-volume-mute-fill"></i></button>
                   <div class="dropdown-menu dropdown-menu-end dropup-volume dropdown-menu-dark">
-                    <input class="form-range" type="range" value="25">
+                    <input class="form-range form-range-volume" type="range">
                   </div>
                 </div>
                 <div class="dropup">
@@ -166,22 +197,22 @@
           </div>
           <div class="col-lg-6">
             <!-- Video Player START -->
-            <div class="videoplayer" id="demoplayer-3">
+            <div class="videoplayer" id="player-3">
               <div class="ratio ratio-16x9 bg-dark">
-                <video class="video" src="source/pexels-cottonbro-7494737-small.mp4"></video>
+                <video class="video" src="http://commondatastorage.googleapis.com/gtv-videos-bucket/sample/ForBiggerEscapes.mp4"></video>
               </div>
               <div class="controls controls-light">
-                <button class="btn btn-lg btn-video-playpause" type="button"><i class="bi bi-play-fill"></i> <i class="bi bi-pause-fill d-none"></i></button>
+                <button class="btn btn-lg btn-video-playpause" data-bs-toggle="tooltip" title="Play Video" type="button"><i class="bi bi-play-fill"></i><i class="bi bi-pause-fill d-none"></i></button>
                 <div class="px-1 w-100">
                   <div class="progress w-100">
-                    <div class="progress-bar" min="0" value="0"></div>
+                    <div class="progress-bar"></div>
                   </div>
                 </div>
                 <button class="btn btn-lg btn-video-pip" title="Play picture in picture"><i class="bi bi-pip"></i></button><button class="btn btn-lg btn-video-fullscreen"><i class="bi bi-arrows-fullscreen"></i></button>
                 <div class="dropup">
                   <button class="btn btn-lg btn-video-volume" data-bs-toggle="dropdown" title="Volume"><i class="bi bi-volume-mute-fill"></i></button>
                   <div class="dropdown-menu dropdown-menu-end dropup-volume dropdown-menu-dark">
-                    <input class="form-range" type="range" value="25">
+                    <input class="form-range form-range-volume" type="range">
                   </div>
                 </div>
                 <div class="dropup">
@@ -196,22 +227,22 @@
           </div>
           <div class="col-lg-6">
             <!-- Video Player START -->
-            <div class="videoplayer" id="demoplayer-4">
+            <div class="videoplayer" id="player-4">
               <div class="ratio ratio-16x9 bg-dark">
-                <video class="video" src="source/pexels-cottonbro-7494737-small.mp4"></video>
+                <video class="video" src="http://commondatastorage.googleapis.com/gtv-videos-bucket/sample/ForBiggerFun.mp4"></video>
               </div>
               <div class="controls controls-dark bg-primary">
-                <button class="btn btn-lg btn-video-playpause" type="button"><i class="bi bi-play-fill"></i> <i class="bi bi-pause-fill d-none"></i></button>
+                <button class="btn btn-lg btn-video-playpause" data-bs-toggle="tooltip" title="Play Video" type="button"><i class="bi bi-play-fill"></i><i class="bi bi-pause-fill d-none"></i></button>
                 <div class="px-1 w-100">
                   <div class="progress w-100">
-                    <div class="progress-bar" min="0" value="0"></div>
+                    <div class="progress-bar"></div>
                   </div>
                 </div>
                 <button class="btn btn-lg btn-video-pip" title="Play picture in picture"><i class="bi bi-pip"></i></button><button class="btn btn-lg btn-video-fullscreen"><i class="bi bi-arrows-fullscreen"></i></button>
                 <div class="dropup">
                   <button class="btn btn-lg btn-video-volume" data-bs-toggle="dropdown" title="Volume"><i class="bi bi-volume-mute-fill"></i></button>
                   <div class="dropdown-menu dropdown-menu-end dropup-volume dropdown-menu-dark bg-primary">
-                    <input class="form-range" type="range" value="25">
+                    <input class="form-range form-range-volume" type="range">
                   </div>
                 </div>
                 <div class="dropup">
@@ -226,22 +257,22 @@
           </div>
           <div class="col-lg-6">
             <!-- Video Player START -->
-            <div class="videoplayer" id="demoplayer-5">
+            <div class="videoplayer" id="player-5">
               <div class="ratio ratio-16x9 bg-dark">
-                <video class="video" src="source/pexels-cottonbro-7494737-small.mp4"></video>
+                <video class="video" src="http://commondatastorage.googleapis.com/gtv-videos-bucket/sample/ForBiggerJoyrides.mp4"></video>
               </div>
               <div class="controls controls-dark bg-danger">
-                <button class="btn btn-lg btn-video-playpause" type="button"><i class="bi bi-play-fill"></i> <i class="bi bi-pause-fill d-none"></i></button>
+                <button class="btn btn-lg btn-video-playpause" data-bs-toggle="tooltip" title="Play Video" type="button"><i class="bi bi-play-fill"></i><i class="bi bi-pause-fill d-none"></i></button>
                 <div class="px-1 w-100">
                   <div class="progress w-100">
-                    <div class="progress-bar" min="0" value="0"></div>
+                    <div class="progress-bar"></div>
                   </div>
                 </div>
                 <button class="btn btn-lg btn-video-pip" title="Play picture in picture"><i class="bi bi-pip"></i></button><button class="btn btn-lg btn-video-fullscreen"><i class="bi bi-arrows-fullscreen"></i></button>
                 <div class="dropup">
                   <button class="btn btn-lg btn-video-volume" data-bs-toggle="dropdown" title="Volume"><i class="bi bi-volume-mute-fill"></i></button>
                   <div class="dropdown-menu dropdown-menu-end dropup-volume dropdown-menu-dark bg-danger">
-                    <input class="form-range" type="range" value="25">
+                    <input class="form-range form-range-volume" type="range">
                   </div>
                 </div>
                 <div class="dropup">
@@ -271,22 +302,22 @@
           </div>
           <div class="col-lg-7">
             <!-- Video Player START -->
-            <div class="videoplayer">
+            <div class="videoplayer" id="player-6">
               <div class="ratio ratio-16x9 bg-dark">
-                <video class="video" src="source/video-demo-timelapse.mp4"></video>
+                <video class="video" src="http://commondatastorage.googleapis.com/gtv-videos-bucket/sample/ForBiggerMeltdowns.mp4"></video>
               </div>
               <div class="controls auto-hide">
-                <button class="btn btn-lg play" data-state="play" type="button"><i class="bi bi-play-fill"></i></button>
+                <button class="btn btn-lg btn-video-playpause" data-bs-toggle="tooltip" title="Play Video" type="button"><i class="bi bi-play-fill"></i><i class="bi bi-pause-fill d-none"></i></button>
                 <div class="px-1 w-100">
                   <div class="progress w-100">
-                    <div class="progress-bar w-25" min="0" value="0"></div>
+                    <div class="progress-bar"></div>
                   </div>
                 </div>
-                <button class="btn btn-lg" title="Play picture in picture"><i class="bi bi-pip"></i></button><button class="btn btn-lg"><i class="bi bi-arrows-fullscreen"></i></button>
+                <button class="btn btn-lg btn-video-pip" title="Play picture in picture"><i class="bi bi-pip"></i></button><button class="btn btn-lg btn-video-fullscreen"><i class="bi bi-arrows-fullscreen"></i></button>
                 <div class="dropup">
                   <button class="btn btn-lg" data-bs-toggle="dropdown" title="Volume"><i class="bi bi-volume-mute-fill"></i></button>
                   <div class="dropdown-menu dropdown-menu-end dropup-volume">
-                    <input class="form-range" type="range" value="25">
+                    <input class="form-range form-range-volume" type="range">
                   </div>
                 </div>
                 <div class="dropup">
@@ -318,22 +349,22 @@
               Aspect Ratio 1x1
             </h4>
             <!-- Video Player START -->
-            <div class="videoplayer">
+            <div class="videoplayer" id="player-7">
               <div class="ratio ratio-1x1 bg-dark">
-                <video class="video" src="source/video-demo-timelapse.mp4"></video>
+                <video class="video" src="http://commondatastorage.googleapis.com/gtv-videos-bucket/sample/Sintel.mp4#t=10"></video>
               </div>
               <div class="controls">
-                <button class="btn btn-lg play" data-state="play" type="button"><i class="bi bi-play-fill"></i></button>
+                <button class="btn btn-lg btn-video-playpause" data-bs-toggle="tooltip" title="Play Video" type="button"><i class="bi bi-play-fill"></i><i class="bi bi-pause-fill d-none"></i></button>
                 <div class="px-1 w-100">
                   <div class="progress w-100">
-                    <div class="progress-bar w-25" min="0" value="0"></div>
+                    <div class="progress-bar"></div>
                   </div>
                 </div>
-                <button class="btn btn-lg" title="Play picture in picture"><i class="bi bi-pip"></i></button><button class="btn btn-lg"><i class="bi bi-arrows-fullscreen"></i></button>
+                <button class="btn btn-lg btn-video-pip" title="Play picture in picture"><i class="bi bi-pip"></i></button><button class="btn btn-lg btn-video-fullscreen"><i class="bi bi-arrows-fullscreen"></i></button>
                 <div class="dropup">
                   <button class="btn btn-lg" data-bs-toggle="dropdown" title="Volume"><i class="bi bi-volume-mute-fill"></i></button>
                   <div class="dropdown-menu dropdown-menu-end dropup-volume">
-                    <input class="form-range" type="range" value="25">
+                    <input class="form-range form-range-volume" type="range">
                   </div>
                 </div>
                 <div class="dropup">
@@ -351,22 +382,22 @@
               Aspect Ratio 4x3
             </h4>
             <!-- Video Player START -->
-            <div class="videoplayer">
+            <div class="videoplayer" id="player-8">
               <div class="ratio ratio-4x3 bg-dark">
-                <video class="video" src="source/video-demo-timelapse.mp4"></video>
+                <video class="video" src="http://commondatastorage.googleapis.com/gtv-videos-bucket/sample/SubaruOutbackOnStreetAndDirt.mp4#t=10"></video>
               </div>
               <div class="controls">
-                <button class="btn btn-lg play" data-state="play" type="button"><i class="bi bi-play-fill"></i></button>
+                <button class="btn btn-lg btn-video-playpause" data-bs-toggle="tooltip" title="Play Video" type="button"><i class="bi bi-play-fill"></i><i class="bi bi-pause-fill d-none"></i></button>
                 <div class="px-1 w-100">
                   <div class="progress w-100">
-                    <div class="progress-bar w-25" min="0" value="0"></div>
+                    <div class="progress-bar"></div>
                   </div>
                 </div>
-                <button class="btn btn-lg" title="Play picture in picture"><i class="bi bi-pip"></i></button><button class="btn btn-lg"><i class="bi bi-arrows-fullscreen"></i></button>
+                <button class="btn btn-lg btn-video-pip" title="Play picture in picture"><i class="bi bi-pip"></i></button><button class="btn btn-lg btn-video-fullscreen"><i class="bi bi-arrows-fullscreen"></i></button>
                 <div class="dropup">
                   <button class="btn btn-lg" data-bs-toggle="dropdown" title="Volume"><i class="bi bi-volume-mute-fill"></i></button>
                   <div class="dropdown-menu dropdown-menu-end dropup-volume">
-                    <input class="form-range" type="range" value="25">
+                    <input class="form-range form-range-volume" type="range">
                   </div>
                 </div>
                 <div class="dropup">
@@ -390,5 +421,6 @@
   </div>
   <script crossorigin="anonymous" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"></script>
   <script src="dist/js/videoplayer.min.js"></script>
+  <script src="source/js/example.js"></script>
   <script src="source/js/prism.js"></script>
 </html>
