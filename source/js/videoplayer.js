@@ -143,24 +143,3 @@ class BootstrapVideoplayer{
     }
 
 }
-
-document.addEventListener('DOMContentLoaded', () => {
-
-    var player1 = new BootstrapVideoplayer('demoplayer-1',{
-        selectors:{
-            video: '.cheeseburger'
-        }
-    })
-    var player2 = new BootstrapVideoplayer('demoplayer-2')
-    var player3 = new BootstrapVideoplayer('demoplayer-3')
-    var player4 = new BootstrapVideoplayer('demoplayer-4')
-    var player5 = new BootstrapVideoplayer('demoplayer-5')
-
-    var tooltipTriggerList = [].slice.call(document.querySelectorAll('[data-bs-toggle="tooltip"]'))
-    var tooltipList = tooltipTriggerList.map(function (tooltipTriggerEl) {
-      return new bootstrap.Tooltip(tooltipTriggerEl,{
-          boundary: document.body
-      })
-    })
-
-})
