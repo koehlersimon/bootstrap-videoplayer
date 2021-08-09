@@ -1,66 +1,97 @@
 class BootstrapVideoplayer{
 
     constructor(selector) {
+
         let settings = {
             // Settings here...
         }
+
         let parent = this
         let player = document.getElementById(selector)
         let video = player.querySelector('video.video')
         let progress = player.querySelector('.progress')
-        video.playing = false
+        let progressbar = progress.querySelector('.progress-bar')
+        let playbutton = player.querySelector('.btn-video-playpause')
+        let pipbutton = player.querySelector('.btn-video-pip')
+        let fullscreenbutton = player.querySelector('.btn-video-pip')
+        let volumeinput = player.querySelector('.input-video-volume')
 
-        video.addEventListener('loadedmetadata', function() {
-            //console.log(video.playing)
-        })
+        try{
+            video.addEventListener('loadedmetadata', function(e) {
 
-        player.querySelector('.btn-video-fullscreen').addEventListener('click',function(){
-            parent.openFullscreen(video)
-        })
+                video.volume = (volumeinput.value/100)
 
-        player.querySelector('.btn-video-playpause').addEventListener('click',function(){
-            parent.playpause(video,this)
-        })
+                volumeinput.addEventListener('change',function(e){
+                    video.volume = (e.target.value/100)
+                })
 
-        video.addEventListener('click',function(){
-            parent.playpause(video,player.querySelector('.btn-video-playpause'))
-        })
+                fullscreenbutton.addEventListener('click',function(){
+                    parent.openFullscreen(video)
+                })
 
-        player.querySelector('.btn-video-pip').addEventListener('click',function(){
-            parent.pip(video,this)
-        })
+                playbutton.addEventListener('click',function(){
+                    parent.playpause(video,this,progressbar)
+                })
 
-        progress.addEventListener('click',function(e){
-            let width = this.clientWidth
-            let bounds = this.getBoundingClientRect();
-            let x = e.clientX - bounds.left;
-            let y = e.clientY - bounds.top;
-            let percent = Math.floor(x / (width / 100))
-            this.querySelector('.progress-bar').style.width = percent + '%'
+                video.addEventListener('click',function(){
+                    parent.playpause(video,playbutton,progressbar)
+                })
 
-        })
+                pipbutton.addEventListener('click',function(){
+                    parent.pip(video,this)
+                })
+
+                progress.addEventListener('click',function(e){
+                    let width = this.clientWidth
+                    let bounds = this.getBoundingClientRect();
+                    let x = e.clientX - bounds.left;
+                    let y = e.clientY - bounds.top;
+                    let percent = Math.floor(x / (width / 100))
+                    progressbar.style.width = percent + '%'
+                    video.currentTime = percent * (video.duration/100)
+                })
+
+            })
+        }
+        catch(error){
+            console.log(error)
+        }
+
     }
 
     pip(video,button){
         console.log('implement PIP here!')
     }
 
-    videoPosition(percentage){
-
-    }
-
-    playpause(video,button){
+    playpause(video,button,progressbar){
         if(video.playing === true){
             video.pause()
             button.querySelector('.bi-play-fill').classList.remove('d-none')
             button.querySelector('.bi-pause-fill').classList.add('d-none')
             video.playing = false
+            clearInterval(video.listener)
         }
         else{
             video.play()
             button.querySelector('.bi-play-fill').classList.add('d-none')
             button.querySelector('.bi-pause-fill').classList.remove('d-none')
             video.playing = true
+            var listener = setInterval(function(){
+                var percentPlayed = Math.floor(video.currentTime / (video.duration/100))
+                if(percentPlayed < 100){
+                    progressbar.style.width = percentPlayed + '%'
+                }
+                else if(percentPlayed === 100){
+                    progressbar.style.width = '100%'
+                    clearInterval(this)
+                    video.pause()
+                    video.currentTime = 0
+                    video.playing = false
+                    button.querySelector('.bi-play-fill').classList.remove('d-none')
+                    button.querySelector('.bi-pause-fill').classList.add('d-none')
+                }
+            },200)
+            video.listener = listener
         }
     }
 
