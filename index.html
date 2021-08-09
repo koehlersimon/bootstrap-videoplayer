@@ -46,27 +46,32 @@
             <!-- Video Player START -->
             <div class="videoplayer" id="demoplayer-1">
               <div class="ratio ratio-16x9 bg-dark">
-                <video class="video" src="source/video-demo-timelapse.mp4"></video>
+                <video class="video" src="source/2_5213023229899182084.mp4"></video>
               </div>
               <div class="controls">
-                <button class="btn btn-lg btn-video-playpause" type="button"><i class="bi bi-play-fill"></i> <i class="bi bi-pause-fill d-none"></i></button>
+                <button class="btn btn-lg btn-video-playpause" title="Play Video" type="button"><i class="bi bi-play-fill"></i> <i class="bi bi-pause-fill d-none"></i></button>
                 <div class="px-1 w-100">
                   <div class="progress w-100">
                     <div class="progress-bar" min="0" value="0"></div>
                   </div>
                 </div>
-                <button class="btn btn-lg btn-video-pip" title="Play picture in picture"><i class="bi bi-pip"></i></button><button class="btn btn-lg btn-video-fullscreen"><i class="bi bi-arrows-fullscreen"></i></button>
+                <button class="btn btn-lg btn-video-pip" title="Play picture in picture"><i class="bi bi-pip"></i></button><button class="btn btn-lg btn-video-fullscreen" title="Full Screen"><i class="bi bi-arrows-fullscreen"></i></button>
                 <div class="dropup">
                   <button class="btn btn-lg btn-video-volume" data-bs-toggle="dropdown" title="Volume"><i class="bi bi-volume-mute-fill"></i></button>
                   <div class="dropdown-menu dropdown-menu-end dropup-volume">
-                    <input class="form-range" type="range" value="25">
+                    <input class="form-range input-video-volume" type="range" value="25">
                   </div>
                 </div>
                 <div class="dropup">
-                  <button class="btn btn-lg btn-more" data-bs-toggle="dropdown" title="More..."><i class="bi bi-three-dots-vertical"></i></button>
+                  <button class="btn btn-lg" data-bs-toggle="dropdown" title="More..."><i class="bi bi-three-dots-vertical"></i></button>
                   <div class="dropdown-menu dropdown-menu-end">
                     <a class="dropdown-item" href="#"><i class="bi bi-info-circle-fill"></i> About</a>
                   </div>
+                </div>
+              </div>
+              <div class="overlay">
+                <div class="title">
+                  MY CRAZY DEMO VIDEO
                 </div>
               </div>
             </div>
@@ -86,7 +91,7 @@
       &lt;video class="video" src="source/video-demo-timelapse.mp4"&gt;&lt;/video&gt;
    &lt;div&gt;
    &lt;div class="controls"&gt;
-      &lt;button class="btn btn-lg btn-video-playpause" type="button">
+      &lt;button class="btn btn-lg btn-video-playpause" type="button" title="Play Video">
           &lt;i class="bi bi-play-fill">&lt;/i>
           &lt;i class="bi bi-pause-fill d-none">&lt;/i>
       &lt;/button>
@@ -106,11 +111,11 @@
               &lt;i class="bi bi-volume-mute-fill">&lt;/i>
           &lt;/button>
           &lt;div class="dropdown-menu dropdown-menu-end dropup-volume">
-              &lt;input class="form-range" type="range" value="25">
+              &lt;input class="form-range input-video-volume" type="range" value="25">
           &lt;/div>
       &lt;/div>
       &lt;div class="dropup">
-          &lt;button class="btn btn-lg btn-more" data-bs-toggle="dropdown" title="More...">
+          &lt;button class="btn btn-lg" data-bs-toggle="dropdown" title="More...">
               &lt;i class="bi bi-three-dots-vertical">&lt;/i>
           &lt;/button>
           &lt;div class="dropdown-menu dropdown-menu-end">

@@ -19,6 +19,7 @@
   background-color: #333;
 }
 .videoplayer .controls .progress .progress-bar {
+  transition: none !important;
   background-color: #666;
 }
 .videoplayer .controls.controls-light .bi {
@@ -44,6 +45,18 @@
 .videoplayer .controls button > *,
 .videoplayer .controls .btn > * {
   pointer-events: none !important;
+}
+.videoplayer .overlay {
+  position: absolute;
+  z-index: 300;
+  top: 0;
+  left: 0;
+}
+.videoplayer .overlay .title {
+  font-size: inherit;
+  color: white;
+  padding: 0.5rem;
+  font-weight: bold;
 }
 .videoplayer .dropup-volume {
   position: absolute !important;

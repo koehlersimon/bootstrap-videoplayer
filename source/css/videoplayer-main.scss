@@ -26,6 +26,7 @@ $default-bg-progress-bar-dark: #999;
         .progress{
             background-color: $default-bg-progress; // Default background-color
             .progress-bar{
+                transition: none !important;
                 background-color: $default-bg-progress-bar; // Default background-color
             }
         }
@@ -54,6 +55,18 @@ $default-bg-progress-bar-dark: #999;
         button > *,
         .btn > * {
             pointer-events: none !important;
+        }
+    }
+    .overlay{
+        position: absolute;
+        z-index: 300;
+        top: 0;
+        left: 0;
+        .title{
+            font-size: inherit;
+            color: white;
+            padding: .5rem;
+            font-weight: bold;
         }
     }
     .dropup-volume{
