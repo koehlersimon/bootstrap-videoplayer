@@ -1,20 +1,56 @@
 class BootstrapVideoplayer{
 
-    constructor(selector) {
+    constructor(selector,settingsCustom) {
 
-        let settings = {
-            // Settings here...
+        let settingsDefault = {
+            selectors:{
+                video: '.video',
+                playPauseButton: '.btn-video-playpause',
+                playIcon: '.bi-play-fill',
+                pauseIcon: '.bi-pause-fill',
+                progress: '.progress',
+                progressbar: '.progress-bar',
+                pipButton: '.btn-video-pip',
+                fullscreenButton: '.btn-video-fullscreen',
+                volumeRange: '.form-range-volume'
+            }
         }
 
+        const deepMerge = function(){
+            // create a new object
+            let target = {};
+            // deep merge the object into the target object
+            const merger = (obj) => {
+                for (let prop in obj) {
+                    if (obj.hasOwnProperty(prop)) {
+                        if (Object.prototype.toString.call(obj[prop]) === '[object Object]') {
+                            // if the property is a nested object
+                            target[prop] = deepMerge(target[prop], obj[prop])
+                        } else {
+                            // for regular property
+                            target[prop] = obj[prop]
+                        }
+                    }
+                }
+            };
+            // iterate through all objects and
+            // deep merge them with target
+            for (let i = 0; i < arguments.length; i++) {
+                merger(arguments[i])
+            }
+            return target;
+        }
+
+        let settings = deepMerge(settingsDefault, settingsCustom) //console.log(settings)
         let parent = this
         let player = document.getElementById(selector)
-        let video = player.querySelector('video.video')
-        let progress = player.querySelector('.progress')
-        let progressbar = progress.querySelector('.progress-bar')
-        let playbutton = player.querySelector('.btn-video-playpause')
-        let pipbutton = player.querySelector('.btn-video-pip')
-        let fullscreenbutton = player.querySelector('.btn-video-pip')
-        let volumeinput = player.querySelector('.input-video-volume')
+        let video = player.querySelector(settings.selectors.video)
+        let progress = player.querySelector(settings.selectors.progress)
+        let progressbar = player.querySelector(settings.selectors.progressbar)
+        let playbutton = player.querySelector(settings.selectors.playPauseButton)
+        let pipbutton = player.querySelector(settings.selectors.pipButton)
+        let fullscreenbutton = player.querySelector(settings.selectors.fullscreenButton)
+        let volumeinput = player.querySelector(settings.selectors.volumeRange)
 
         try{
             video.addEventListener('loadedmetadata', function(e) {
@@ -54,6 +90,7 @@ class BootstrapVideoplayer{
             })
         }
         catch(error){
+            console.log('Bootstrap Video Player: Video object can not be found. Please check your plugin settings.')
             console.log(error)
         }
 
@@ -109,10 +146,21 @@ class BootstrapVideoplayer{
 
 document.addEventListener('DOMContentLoaded', () => {
 
-    var player1 = new BootstrapVideoplayer('demoplayer-1')
+    var player1 = new BootstrapVideoplayer('demoplayer-1',{
+        selectors:{
+            video: '.cheeseburger'
+        }
+    })
     var player2 = new BootstrapVideoplayer('demoplayer-2')
     var player3 = new BootstrapVideoplayer('demoplayer-3')
     var player4 = new BootstrapVideoplayer('demoplayer-4')
     var player5 = new BootstrapVideoplayer('demoplayer-5')
+
+    var tooltipTriggerList = [].slice.call(document.querySelectorAll('[data-bs-toggle="tooltip"]'))
+    var tooltipList = tooltipTriggerList.map(function (tooltipTriggerEl) {
+      return new bootstrap.Tooltip(tooltipTriggerEl,{
+          boundary: document.body
+      })
+    })
 
 })
