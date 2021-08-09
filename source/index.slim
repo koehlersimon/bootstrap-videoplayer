@@ -13,7 +13,7 @@ html lang="en"
         link rel="shortcut icon" href="https://raw.githubusercontent.com/koehlersimon/bootstrap-videoplayer/master/favicon.ico"
     body
 
-        .text-center.py-4.pt-lg-4.bg-light.mb-5.mb-lg-0
+        .text-center.py-4.pt-lg-4.bg-light
             h1.display-3.mb-0.fw-bold VIDEO PLAYER INTERFACE
             h2.fw-4.mb-0 FOR BOOTSTRAP 5.0.2
             <span class="small text-muted">LAST UPDATE: #{todayDate}</span>
@@ -37,7 +37,13 @@ html lang="en"
                             ul.mb-4
                                 li title="Play Video" data-bs-toggle="tooltip" data-bs-placement="top" Bootstrap Version 5.0.2
                                 li Uses Bootstrap Icons
-                                li Pure JavaScript
+                                li Vanilla JavaScript only
+                            h4 Requirements
+                            ul.mb-4
+                                li Bootstrap CSS
+                                li Bootstrap JS w. Popper.js
+                                li A modern browser (no IE!)
+
                             p.small.text-info.fw-bold This project is still experimental! Do not use it in a live environment when you don't know what you're doing ;-)
 
                             a.btn.btn-dark.btn-lg.fw-bold href="https://github.com/koehlersimon/bootstrap-videoplayer/"
@@ -98,8 +104,9 @@ html lang="en"
                         pre.mb-4
                             code.language-markup
                                 | &lt;!--
-                                    Make sure to include the Bootstrap CSS in your website header:
+                                    Make sure to include the Bootstrap CSS and the Video Player CSS file in your website header:
                                     &lt;link crossorigin="anonymous" href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" rel="stylesheet">
+                                    &lt;link href="videoplayer.min.css" rel="stylesheet">
                                   -->
 
                                   &lt;div class="videoplayer" id="myCustomPlayer"&gt;
